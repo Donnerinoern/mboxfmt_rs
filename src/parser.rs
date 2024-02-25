@@ -58,13 +58,17 @@ pub fn parse_file(vec: &Vec<&str>) -> HashMap<FieldType, String> {
             }
         }
     }
-    for i in subject_start..subject_end-1 {
-        subject.push_str(vec[i]);
+    if subject_start != 0 {
+        for i in subject_start..subject_end-1 {
+            subject.push_str(vec[i]);
+        }
+        map.insert(FieldType::Subject, subject);
     }
-    for i in content_plain_start..content_plain_end-1 {
-        content_plain.push_str(vec[i].trim_end_matches("=\n"));
+    if content_plain_start != 0 {
+        for i in content_plain_start..content_plain_end-1 {
+            content_plain.push_str(vec[i].trim_end_matches("=\n"));
+        }
+        map.insert(FieldType::ContentPlain, content_plain);
     }
-    map.insert(FieldType::Subject, subject);
-    map.insert(FieldType::ContentPlain, content_plain);
     map
 }
