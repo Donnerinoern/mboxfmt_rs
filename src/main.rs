@@ -1,10 +1,10 @@
 #![feature(string_remove_matches)]
 
-use std::{env, fs, io::{BufWriter, Write}};
+use std::{env, fs};
 
-use crate::parser::FieldType;
 mod parser;
 mod formatter;
+mod generator;
 
 fn main() {
     let args: Vec<String> = env::args().collect();
@@ -23,7 +23,7 @@ fn main() {
         }
 
         _ => {
-            println!("Unknown args!");
+            println!("Unknown args.");
             help();
             return;
         }
@@ -31,30 +31,23 @@ fn main() {
 
     let source_file = fs::read_to_string(input_filename)
         .expect("File does not exist.");
-
     let source_vec: Vec<&str> = source_file.split_inclusive("\n").collect(); // Maybe parse_file
-                                                                             // should take a
-                                                                             // string and split
     let mut map = parser::parse_file(&source_vec);
-
     formatter::format(&mut map);
-
-    let file = fs::File::create_new(output_filename).unwrap();
-
-    let mut writer = BufWriter::new(file);
-    writer.write(map.get(&FieldType::From).unwrap().as_bytes());
-    writer.write(map.get(&FieldType::To).unwrap().as_bytes());
-    writer.write(map.get(&FieldType::Date).unwrap().as_bytes());
-    writer.write(map.get(&FieldType::Subject).unwrap().as_bytes());
-    writer.write(map.get(&FieldType::ContentPlain).unwrap().as_bytes());
+    generator::generate_file(output_filename, &map)
 }
 
-fn help() {
+pub fn help() { // Potential arg: --overwrite
     println!("
-Usage: mboxto <input file> <output filename>\n
+Usage: mboxfmt <input file> <output filename>\n
 Valid file extensions:
 txt
 html
 md"
     );
+}
+
+pub fn print_error(msg: &str) {
+    println!("Error: {}", msg);
+    help();
 }

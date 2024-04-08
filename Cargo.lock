@@ -3,5 +3,5 @@
 version = 3
 
 [[package]]
-name = "mboxto_rs"
+name = "mboxfmt"
 version = "0.1.0"
