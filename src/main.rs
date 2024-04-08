@@ -1,6 +1,6 @@
 #![feature(string_remove_matches)]
 
-use std::{env, fs, io::Write};
+use std::{env, fs, io::{BufWriter, Write}};
 
 use crate::parser::FieldType;
 mod parser;
@@ -40,15 +40,13 @@ fn main() {
     formatter::format(&mut map);
 
     let mut file = fs::File::create_new(output_filename).unwrap();
-    file.write_all(map.get(&FieldType::From).unwrap().as_bytes());
-    file.write_all(b"\n");
-    file.write_all(map.get(&FieldType::To).unwrap().as_bytes());
-    file.write_all(b"\n");
-    file.write_all(map.get(&FieldType::Date).unwrap().as_bytes());
-    file.write_all(b"\n");
-    file.write_all(map.get(&FieldType::Subject).unwrap().as_bytes());
-    file.write_all(b"\n\n");
-    file.write_all(map.get(&FieldType::ContentPlain).unwrap().as_bytes());
+
+    let mut writer = BufWriter::new(file);
+    writer.write(map.get(&FieldType::From).unwrap().as_bytes());
+    writer.write(map.get(&FieldType::To).unwrap().as_bytes());
+    writer.write(map.get(&FieldType::Date).unwrap().as_bytes());
+    writer.write(map.get(&FieldType::Subject).unwrap().as_bytes());
+    writer.write(map.get(&FieldType::ContentPlain).unwrap().as_bytes());
 }
 
 fn help() {
