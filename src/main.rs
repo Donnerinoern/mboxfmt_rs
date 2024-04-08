@@ -8,25 +8,38 @@ mod formatter;
 
 fn main() {
     let args: Vec<String> = env::args().collect();
-    if args.len() < 3 {
-        help();
-        return;
-    }
-    let source_file = fs::read_to_string(&args[1])
-        .expect("Could not read file.");
-    let output = &args[2];
+    let mut input_filename  = &String::new();
+    let mut output_filename = &String::new();
 
-    let source_vec: Vec<&str> = source_file.split_inclusive("\n").collect();
+    match args.len() {
+        1 | 2 => {
+            help();
+            return;
+        }
+
+        3 => {
+            input_filename  = &args[args.len()-2];
+            output_filename = &args[args.len()-1];
+        }
+
+        _ => {
+            println!("Unknown args!");
+            help();
+            return;
+        }
+    }
+
+    let source_file = fs::read_to_string(input_filename)
+        .expect("File does not exist.");
+
+    let source_vec: Vec<&str> = source_file.split_inclusive("\n").collect(); // Maybe parse_file
+                                                                             // should take a
+                                                                             // string and split
     let mut map = parser::parse_file(&source_vec);
-    // let mut subject = map.get(&FieldType::Subject).unwrap().to_string();
-    // let mut text = map.get(&FieldType::ContentPlain).unwrap().to_string();
 
     formatter::format(&mut map);
-    // formatter::format_subject(&mut map.get(&FieldType::Subject).unwrap().to_string());
-    // formatter::format_text(&mut map.get(&FieldType::ContentPlain).unwrap().to_string());
 
-    // println!("{text}");
-    let mut file = fs::File::create_new(output).unwrap();
+    let mut file = fs::File::create_new(output_filename).unwrap();
     file.write_all(map.get(&FieldType::From).unwrap().as_bytes());
     file.write_all(b"\n");
     file.write_all(map.get(&FieldType::To).unwrap().as_bytes());
@@ -40,10 +53,7 @@ fn main() {
 
 fn help() {
     println!("
-Usage: mboxto [arg [...]] <input> <output>\n
-Arguments:
---help                   -h
---force FILE_EXT         -f FILE_EXT\n
+Usage: mboxto <input file> <output filename>\n
 Valid file extensions:
 txt
 html
