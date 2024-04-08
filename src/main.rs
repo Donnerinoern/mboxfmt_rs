@@ -39,7 +39,7 @@ fn main() {
 
     formatter::format(&mut map);
 
-    let mut file = fs::File::create_new(output_filename).unwrap();
+    let file = fs::File::create_new(output_filename).unwrap();
 
     let mut writer = BufWriter::new(file);
     writer.write(map.get(&FieldType::From).unwrap().as_bytes());

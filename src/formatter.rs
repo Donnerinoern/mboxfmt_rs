@@ -10,18 +10,11 @@ pub fn format(map: &mut HashMap<FieldType, String>) {
         map.remove(&FieldType::ContentPlain);
         map.insert(FieldType::ContentPlain, content);
     }
-
-    // ret_map
 }
-
-// pub fn format_subject(subject_string: &mut String) -> String {
-//     clean_subject(subject_string);
-// }
 
 pub fn format_text(text_string: &mut String) -> String {
     *text_string = text_string.replace("=E5", "å");
     *text_string = text_string.replace("=F8", "ø");
-    // println!("{text_string}");
     text_string.to_string()
 }
 
