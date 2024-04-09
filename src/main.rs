@@ -73,7 +73,7 @@ fn main() {
     match file_ext_enum {
         Some(e) => {
             formatter::format(&mut map, &e);
-            generator::generate_file(output_filename, &map, e)
+            generator::generate_file(output_filename, &map, e);
         }
 
         None => {

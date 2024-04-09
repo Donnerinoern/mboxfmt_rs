@@ -10,29 +10,60 @@ pub fn generate_file(output_filename: &String, map: &HashMap<FieldType, String>,
             let mut writer = BufWriter::new(f);
             match file_extension {
                 FileExtension::TXT => {
-                    writer.write(map.get(&FieldType::From).unwrap().as_bytes());
-                    writer.write(map.get(&FieldType::To).unwrap().as_bytes());
-                    writer.write(map.get(&FieldType::Date).unwrap().as_bytes());
-                    writer.write(map.get(&FieldType::Subject).unwrap().as_bytes());
-                    writer.write(map.get(&FieldType::ContentPlain).unwrap().as_bytes());
+                    let mut buffer: String = String::new();
+                    buffer.push_str(map.get(&FieldType::From).unwrap());
+                    buffer.push_str(map.get(&FieldType::To).unwrap());
+                    buffer.push_str(map.get(&FieldType::Date).unwrap());
+                    buffer.push_str(map.get(&FieldType::Subject).unwrap());
+                    buffer.push_str(map.get(&FieldType::ContentPlain).unwrap());
+                    let _ = writer.write(buffer.as_bytes());
                 }
 
                 FileExtension::MD => {
                     let mut buffer: String = String::new();
                     buffer.push_str("### ");
                     buffer.push_str(map.get(&FieldType::From).unwrap());
+                    buffer.push_str("\n");
+
                     buffer.push_str("### ");
                     buffer.push_str(map.get(&FieldType::To).unwrap());
+                    buffer.push_str("\n");
+
                     buffer.push_str("### ");
                     buffer.push_str(map.get(&FieldType::Date).unwrap());
+                    buffer.push_str("\n");
+
                     buffer.push_str("### ");
                     buffer.push_str(map.get(&FieldType::Subject).unwrap());
+                    buffer.push_str("\n");
+
                     buffer.push_str("---");
+                    buffer.push_str("\n");
+
                     buffer.push_str(map.get(&FieldType::ContentPlain).unwrap());
-                    writer.write(buffer.as_bytes());
+                    let _ = writer.write(buffer.as_bytes());
                 }
 
                 FileExtension::HTML => {
+                    let mut buffer: String = String::new();
+                    buffer.push_str("<h4>");
+                    buffer.push_str(map.get(&FieldType::From).unwrap().trim_end());
+                    buffer.push_str("</h4>\n");
+
+                    buffer.push_str("<h4>");
+                    buffer.push_str(map.get(&FieldType::To).unwrap().trim_end());
+                    buffer.push_str("</h4>\n");
+
+                    buffer.push_str("<h4>");
+                    buffer.push_str(map.get(&FieldType::Date).unwrap().trim_end());
+                    buffer.push_str("</h4>\n");
+
+                    buffer.push_str("<h4>");
+                    buffer.push_str(map.get(&FieldType::Subject).unwrap());
+                    buffer.push_str("</h4>\n");
+
+                    buffer.push_str(map.get(&FieldType::ContentHtml).unwrap());
+                    let _ = writer.write(buffer.as_bytes());
                 }
             }
         }
