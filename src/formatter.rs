@@ -1,7 +1,7 @@
 use std::collections::HashMap;
-use crate::parser::FieldType;
+use crate::{parser::FieldType, FileExtension};
 
-pub fn format(map: &mut HashMap<FieldType, String>) {
+pub fn format(map: &mut HashMap<FieldType, String>, file_extension: &FileExtension) {
     if map.get(&FieldType::Subject).unwrap().contains("=?iso-8859-1?Q?") {
         let subject = format_subject(&mut map.get(&FieldType::Subject).unwrap().to_string());
         map.remove(&FieldType::Subject);
@@ -12,7 +12,7 @@ pub fn format(map: &mut HashMap<FieldType, String>) {
     }
 }
 
-pub fn format_text(text_string: &mut String) -> String {
+fn format_text(text_string: &mut String) -> String {
     *text_string = text_string.replace("=E5", "å");
     *text_string = text_string.replace("=F8", "ø");
     text_string.to_string()

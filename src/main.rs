@@ -6,9 +6,15 @@ mod parser;
 mod formatter;
 mod generator;
 
+enum FileExtension {
+    TXT,
+    MD,
+    HTML
+}
+
 fn main() {
     let args: Vec<String> = env::args().collect();
-    let mut input_filename  = &String::new();
+    let mut input_filename  = &String::new(); // Maybe turn into Option<&String>
     let mut output_filename = &String::new();
 
     match args.len() {
@@ -33,8 +39,48 @@ fn main() {
         .expect("File does not exist.");
     let source_vec: Vec<&str> = source_file.split_inclusive("\n").collect(); // Maybe parse_file
     let mut map = parser::parse_file(&source_vec);
-    formatter::format(&mut map);
-    generator::generate_file(output_filename, &map)
+
+    let file_extension = output_filename.split_once(".");
+    let mut file_ext_enum: Option<FileExtension> = None;
+    match file_extension {
+        Some(s) => {
+            match s.1 {
+                "txt" => {
+                    file_ext_enum = Some(FileExtension::TXT);
+                }
+
+                "md" => {
+                    file_ext_enum = Some(FileExtension::MD);
+                }
+
+                "html" => {
+                    file_ext_enum = Some(FileExtension::HTML);
+                }
+
+                _ => {
+                    print_error("Unknown file extension.");
+                    return;
+                }
+            }
+        }
+
+        None => {
+            print_error("Missing file extension.");
+            return;
+        }
+    }
+
+    match file_ext_enum {
+        Some(e) => {
+            formatter::format(&mut map, &e);
+            generator::generate_file(output_filename, &map, e)
+        }
+
+        None => {
+            print_error("Missing file extension.");
+            return;
+        }
+    }
 }
 
 pub fn help() { // Potential arg: --overwrite
