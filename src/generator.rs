@@ -65,6 +65,10 @@ pub fn generate_file(output_filename: &String, map: &HashMap<FieldType, String>,
                     buffer.push_str(map.get(&FieldType::ContentHtml).unwrap());
                     let _ = writer.write(buffer.as_bytes());
                 }
+
+                FileExtension::Unknown => {
+                    print_error("Unknown file extension.");
+                }
             }
         }
 

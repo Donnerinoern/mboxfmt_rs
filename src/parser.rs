@@ -1,4 +1,5 @@
 use std::collections::HashMap;
+use std::fs;
 
 #[derive(Eq, Hash, PartialEq)]
 pub enum FieldType {
@@ -11,7 +12,11 @@ pub enum FieldType {
     ContentHtml
 }
 
-pub fn parse_file(vec: &Vec<&str>) -> HashMap<FieldType, String> {
+pub fn parse_file(filename: &String) -> HashMap<FieldType, String> {
+    let file = fs::read_to_string(filename) 
+        .expect("File does not exist.");
+    let vec: Vec<&str> = file.split_inclusive("\n").collect();
+
     let mut map: HashMap<FieldType, String> = HashMap::new();
     let mut field_type: FieldType = FieldType::None;
     let mut extract = false;
@@ -26,7 +31,7 @@ pub fn parse_file(vec: &Vec<&str>) -> HashMap<FieldType, String> {
     let mut content_html_end = 0;
     let mut content_html = String::new();
 
-    for e in vec {
+    for e in &vec {
         index += 1;
         if !extract {
             if e.starts_with("From: ") {
