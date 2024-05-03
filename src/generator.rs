@@ -68,6 +68,7 @@ pub fn generate_file(output_filename: &String, map: &HashMap<FieldType, String>,
 
                 FileExtension::Unknown => {
                     print_error("Unknown file extension.");
+                    return;
                 }
             }
         }

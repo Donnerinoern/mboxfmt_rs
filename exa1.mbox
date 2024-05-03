@@ -1,0 +1,121 @@
+From slakkerag@hotmail.no Thu Feb  8 21:36:07 2024
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=ByDx4k920AeSISrTVYzAQA70X9vPSQ7/z1G7DtmP1JAhbaCK3YqlBXKtIXcifj2tlifCUWG/MkzuRCkPl9jn09hRSbMmmNYBxWfqKwJldYPldBj8ONO4aq7CvMiXKSuGBYfV3tz3e89CblvWhtSXiWnOOFfbpI08mnrt6E8lxm5TTTKeeUKMcsQIVa8DcRzCDwJHeJXgxU3X/bAb9d401TcudK3Ddtmt9JXo3tpaLJSOgO2qCjkfK7efA/sWgQhMPno5qDO3/BAeiUV+FAq9sGgwvF0wuiW6PsQeL0bYbr5UqEueAnV+NJnC9NzRdg9D4YHUUMuvgm9auwjBqVv13w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=wh1VMh2AWtTREhPcCLHC6HD3JnzdafLEnnPvviBprU0=;
+ b=dCNjv3ADF7AL2cZg/WexrBE1qB/dSJcCKE76kelwR8KIbVHjYOAiQr2/t9ZvA49PzIaKo0FcgHEJU73dOmcvLN05k4SkHqfW7g/9DCIL6HFUwWo39prpl7q6GI9r0Yswl6LIHSUSEe31FZ1AjVbkBdMd5+hXNZLm/vzSZ4kE+m/df4IGf1x71D1e7ukWPdO6TObuqUieASJKiieEXcGTDfA1DytQ3QlndMXw6wKrVtPALT8p8ZAu9tfxQsBfXWJ5UYHD3RZb0va+pcT7GimfT9m//M1NKR9HwEHu50UsH+29DXRVap5DP9kCgzRQ71AJO4kPzir75QeayL5gcxEgrA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
+ dkim=none; arc=none
+Received: from DU2P195MB2372.EURP195.PROD.OUTLOOK.COM (2603:10a6:10:46e::14)
+ by PAVP195MB2287.EURP195.PROD.OUTLOOK.COM (2603:10a6:102:2f7::18) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7270.15; Thu, 8 Feb
+ 2024 21:36:06 +0000
+Received: from DU2P195MB2372.EURP195.PROD.OUTLOOK.COM
+ ([fe80::24f:3619:f9a9:6280]) by DU2P195MB2372.EURP195.PROD.OUTLOOK.COM
+ ([fe80::24f:3619:f9a9:6280%7]) with mapi id 15.20.7270.016; Thu, 8 Feb 2024
+ 21:36:06 +0000
+From: Sondre Alvestad <slakkerag@hotmail.no>
+To: "email@donnan.no" <email@donnan.no>
+Subject: Fyfaen
+Thread-Topic: Fyfaen
+Thread-Index: AQHaWtaIfYNLnT3mJUCt/v68eskdDg==
+Date: Thu, 8 Feb 2024 21:36:05 +0000
+Message-ID:
+ <DU2P195MB23721F16CC6D1B13CA1F338CC0442@DU2P195MB2372.EURP195.PROD.OUTLOOK.COM>
+Accept-Language: nb-NO, en-US
+Content-Language: nb-NO
+X-MS-Has-Attach:
+X-MS-TNEF-Correlator:
+msip_labels:
+x-ms-exchange-messagesentrepresentingtype: 1
+x-tmn: [uWz7ATUwSFWLWarqhAz5AmBw+PsU3M1eH11bq4ivGjLzyxkDaQ9F0L6zcufX28Ps]
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: DU2P195MB2372:EE_|PAVP195MB2287:EE_
+x-ms-office365-filtering-correlation-id: d6c1c848-1578-44f7-f824-08dc28edf4d1
+x-microsoft-antispam: BCL:0;
+x-microsoft-antispam-message-info:
+ 3aRaTAX1bmK2khLetJJ88l+g3oCqMHfEomG8/h6sT2hPq43vx6LWWvkrlEwfu2CrtE0450k6UORH/swNFqQSMVPcgCQiMtjHoHjEngl9R/o8bAjm3+cHdPvUH3zrGlCuprhK77Q9W5PM9o+SALS9eiHAB/76Q/UMvTOmYfUjiwAAHaXcgfuC5jIG0XLm33BAMjKh5TEYTU6VHMnLcxjxhf+Xkxa9bS/X/bP3DNMk2zpVU8Y2j/Q3BfJEtpf19U/voFzP1ty1jjSAOZOs6dsTsPIkh/f0zgIK3aDLC0F1SBZzi2PePzLdq6ikBosfNHlMc52KlZmUm6IrkAlvTJq7yk/4VntQKrYD8x08/JJeoECenYzEXv1896ZIz8ywQrTKMIfUwZlos16ccsanR0JMEMjykUPddm4GNuYqSlWjWfPATy6crd3norGkoWxPGvQumTAA5nd1uvufZZsW5p1YmqbalmNLYuwiG2rxk5dNCxnlMaXjIvChtPrIyIS8jBoCOp7D/fnLLOzFHu4/UkdpL6xh0J2ox/jh6GUQfg/bQtU+uO+j58Zk8idDbJTIyuMO
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0:
+ =?iso-8859-1?Q?y37N0baBRJHT+ILpyfh9ual0aM2H5H1pTkSzzJusbMMlVa15l7R2JkwZqI?=
+ =?iso-8859-1?Q?seUUPMhh8q/bTtT1Tu/FUVtkGSnZMrrJjy8YYQohd4T2GGDWDWTHCXXncV?=
+ =?iso-8859-1?Q?ucabDCO6kLA4jvASX/EXFpgeDvM6nUJ4G+zNDxd1Q3E/nVroW5XTwPhzQz?=
+ =?iso-8859-1?Q?RPOsANbVCrsBb9NfYp2OgNTMqcxGT43Sq5pFZ2kwEdlPq6J91k9yu+zSYw?=
+ =?iso-8859-1?Q?8odbDpv8p0bFJGwZ2k9odcszyAX/wD9v5ztcu9LW0lOpQ7pDl1CYymog4/?=
+ =?iso-8859-1?Q?Vw13T6Fi1x8t3oqp5AYhHVgj/7Ewnhm38hVfqhURoboWbcbhavA2rgNFM7?=
+ =?iso-8859-1?Q?cqQc1hrc5gcR126aUAZUm6YmOy85JylV2IQUJ5QuAnqw2gI2Xj55BKH/ik?=
+ =?iso-8859-1?Q?PelNuRlGfOhDSQ5EcUP85k8QP6ubnF28NbzXaECNhSrLai74UYIoPHyqy7?=
+ =?iso-8859-1?Q?wfy0hGzCh1OviSsgtPO2J2WbLxkmwHzZUDpC7AHgoFilNJRMQGDV4sisp3?=
+ =?iso-8859-1?Q?eIM3M0Qs6erZBHy7zyo3bvxzgXLhAXFD40uXn0TqsWbX1K8v/d16SiApbW?=
+ =?iso-8859-1?Q?KYU6DGocV317fHqjXDig7FEjUnryjbHXDZSO6Q0ukkAPdnHegkUeAMTiRb?=
+ =?iso-8859-1?Q?0YlqA0kwyr0kVmjC5YLAJ9yk08lE4WzikSyGI808NUfahh8JDOrP6AF8PV?=
+ =?iso-8859-1?Q?QYl+dPVMTAa9+Mnnwg9byAo0LmHZV5CUweFgEbmXctW15Gr8XfGTbbnjKT?=
+ =?iso-8859-1?Q?PJIYFwthmF5XI4j7dU3cJo2q5xGtj+y5JECjnrucLMHXFzZeNGadMbhk3G?=
+ =?iso-8859-1?Q?DMJoM9Y50/BYkmBCtRL2s3+0Z4o1oZXe/Pg/H/oKehyg9vnoS9ADS6ciaw?=
+ =?iso-8859-1?Q?moAclARvjr13WZRWourIKJwX6MKijdM97Dph9F5xOnna6FhGx+64NgJKp3?=
+ =?iso-8859-1?Q?tLmq03OZf/kBGILW55rMt9DldbrE4K2imfDTYftegc2vTYM6ZGFRI7JWs0?=
+ =?iso-8859-1?Q?iznKOrjKgkyJExhDbPEtkMB8OoSp0MH0HRQTTlcdkqGDM7LRlOergjIZIH?=
+ =?iso-8859-1?Q?nOqtMQCegBEQcmWsI/YYtOuVRfucVFSkb7PziREIB93NQJA5oWqk1oP/MG?=
+ =?iso-8859-1?Q?fo0omTu7NVmfI45aghqc/XI2PaGxihN1SUX+XconfuODi408NR22teqjlJ?=
+ =?iso-8859-1?Q?8RxYNQ6JX5tLZ29YtVdYf8bWFlUbHGN4Pd+pKDFSCtDxXbRujcUGePJLv1?=
+ =?iso-8859-1?Q?A7KO7qXJCt7y9OQHSCWIIuZizkr1TlFn/aTmZOuYmPwwRQ3pNQCDlam9q8?=
+ =?iso-8859-1?Q?L/01mdMOfTi7+flfqJntjoXOsw=3D=3D?=
+Content-Type: multipart/alternative;
+	boundary="_000_DU2P195MB23721F16CC6D1B13CA1F338CC0442DU2P195MB2372EURP_"
+MIME-Version: 1.0
+X-OriginatorOrg: sct-15-20-4755-11-msonline-outlook-49ed2.templateTenant
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: DU2P195MB2372.EURP195.PROD.OUTLOOK.COM
+X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-CrossTenant-Network-Message-Id: d6c1c848-1578-44f7-f824-08dc28edf4d1
+X-MS-Exchange-CrossTenant-originalarrivaltime: 08 Feb 2024 21:36:05.9304
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
+X-MS-Exchange-CrossTenant-rms-persistedconsumerorg: 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAVP195MB2287
+
+--_000_DU2P195MB23721F16CC6D1B13CA1F338CC0442DU2P195MB2372EURP_
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
+
+Fyfaen som vi tester!!
+Kursivtest
+Understreking
+Stor tekst
+Strikethrough
+
+--_000_DU2P195MB23721F16CC6D1B13CA1F338CC0442DU2P195MB2372EURP_
+Content-Type: text/html; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
+
+<html>
+<head>
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Diso-8859-=
+1">
+<style type=3D"text/css" style=3D"display:none;"> P {margin-top:0;margin-bo=
+ttom:0;} </style>
+</head>
+<body dir=3D"ltr">
+<div class=3D"elementToProof" style=3D"font-family: Calibri, Helvetica, san=
+s-serif; font-size: 12pt; color: rgb(0, 0, 0);">
+Fyfaen som vi tester!!</div>
+<div class=3D"elementToProof" style=3D"font-family: Calibri, Helvetica, san=
+s-serif; font-size: 12pt; color: rgb(0, 0, 0);">
+Ku<i>rsiv</i>test</div>
+<div class=3D"elementToProof" style=3D"font-family: Calibri, Helvetica, san=
+s-serif; font-size: 12pt; color: rgb(0, 0, 0);">
+Under<u>streking</u></div>
+<div class=3D"elementToProof" style=3D"font-family: Calibri, Helvetica, san=
+s-serif; font-size: 12pt; color: rgb(0, 0, 0);">
+<span style=3D"font-size: 48pt;">Stor tekst</span></div>
+<div class=3D"elementToProof" style=3D"font-family: Calibri, Helvetica, san=
+s-serif; font-size: 12pt; color: rgb(0, 0, 0);">
+Str<s>ikethrough</s></div>
+</body>
+</html>
+
+--_000_DU2P195MB23721F16CC6D1B13CA1F338CC0442DU2P195MB2372EURP_--

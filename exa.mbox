@@ -1,0 +1,51 @@
+From sondresalvestad@gmail.com Thu Feb  8 19:06:37 2024
+Received: by mail-yw1-f177.google.com with SMTP id 00721157ae682-604ab54bb83so2444607b3.1
+        for <email@donnan.no>; Thu, 08 Feb 2024 11:06:36 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1707419196; x=1708023996; darn=donnan.no;
+        h=to:subject:message-id:date:from:mime-version:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=XF6M890VEczrvo/wxLpiffI3LJGjpCZD8bp/dPEXOpI=;
+        b=XvT2ggN78pMH5zShPZrqEsjpsuT1g2+6x1GXK3veF30FdPKXqrHcbQ7/0XtLF23jYS
+         0gqYmFYwdqKd0S+7fK7+ZGUGy9PQVFCJQUIfCPb3UJ4Hi5YDTx1V4oVnlUjIwptnE41p
+         08ao1U7x0vqmSBNDHssIgZ8U9TiwFizC4++qvwKXMZ6jv7Cz0bFoCe+1SP6ck/087s0n
+         DBgf/ytCBxgY4qgOw4IQMOOzeMhzbpCUUV41fSPXE6Sxyik2sW6KO1mnSJZnREGI9Y4w
+         eeSKACDipt0xyzPHHkLbrnPGcWv5xhEPudqi6V4s2ItWOOZAXeVAUM85sMxvu64Zhdho
+         a/vg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1707419196; x=1708023996;
+        h=to:subject:message-id:date:from:mime-version:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=XF6M890VEczrvo/wxLpiffI3LJGjpCZD8bp/dPEXOpI=;
+        b=UM80P9MbFmcpr6J0ABLHYLO3L6obPQCDM6JsEdeP3Pndok5dqvlePzyMrqac0/j+fk
+         YXAi/RpjLF5rPcIkstqK4SZohknfj318zh2MPSvUk/H0ocSGwrT1+yBNUcu0dapaCXHr
+         BaCdhv6GSdjFK2KbVyL+rEBHnKhowBE790JDhmA2iCXL3RVrOBz+N6+b0P6Uc79lKSxf
+         7t6hK/Bth+V0Ka4bn/ysa/Vgbo0nn5a7igEwW4881p7TKHxAJcuqwKK/K6KrvfbTK/cH
+         RPxVlmCD84mtOO0Cc3UTejMi5P0wdzFTNMNIt5oNNsA5Wia0LD5wdSFZBsrAuF0AnAjo
+         104A==
+X-Gm-Message-State: AOJu0YyXb4G7tOE8XK94mJ4QjwGNhZkyx9Ftpo9Uj8/L7giu+exoqgqa
+	vFu9f6Bmq5ZGJWYGycPOybJeodj8jIJKe6PoKcKKETi5KNo6vF6tUB/KILHSm+oQTKRZ2Nx/J2z
+	xNvgWxD6vMTV02GzyGqVsxw1EvbzM30FrSc8=
+X-Google-Smtp-Source: AGHT+IEHpnx0p3vl/AHQ7NDXPOh+yHr7v/DpakXEhPcI9SBRaY0TkyDDrzUkYHeymGQ+b0Wr/hB2l6yIoNHillrvMp8=
+X-Received: by 2002:a81:92d4:0:b0:604:a0e0:5863 with SMTP id
+ j203-20020a8192d4000000b00604a0e05863mr291829ywg.21.1707419196120; Thu, 08
+ Feb 2024 11:06:36 -0800 (PST)
+MIME-Version: 1.0
+From: Sondre Alvestad <sondresalvestad@gmail.com>
+Date: Thu, 8 Feb 2024 20:06:25 +0100
+Message-ID: <CAOa7KgNhVzKOa19GHoAmN_=FwRb2YhPaCQuubsdWoEXSy43k_A@mail.gmail.com>
+Subject: Elsker deg <3
+To: email@donnan.no
+Content-Type: multipart/alternative; boundary="000000000000aae2950610e38244"
+
+--000000000000aae2950610e38244
+Content-Type: text/plain; charset="UTF-8"
+
+Hei Amrit, jeg elsker deg <3
+
+--000000000000aae2950610e38244
+Content-Type: text/html; charset="UTF-8"
+
+<div dir="ltr">Hei Amrit, jeg elsker deg &lt;3<br></div>
+
+--000000000000aae2950610e38244--
